@@ -3,13 +3,14 @@ class UsersController < ApplicationController
   end 
 
   def create 
-    User.create(user_params)
+    new_user = User.create(user_params)
+    flash[:success] = "Welcome, #{new_user.username}"    
     redirect_to "/"
   end 
 
 
-  private 
-  def user_params
-    params.permit(:username, :password)
-  end 
-end 
+  private
+    def user_params
+      params.permit(:username, :password)
+    end
+end  
