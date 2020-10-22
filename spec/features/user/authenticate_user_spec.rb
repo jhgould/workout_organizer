@@ -77,5 +77,35 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
   end 
 
+  it "user can log out" do 
+    user = User.create(username: "thedude69", password: "test")
+
+    visit "/"
+
+    click_on "Login"
+
+    expect(current_path).to eq('/login')
+
+    fill_in :username, with: user.username
+    fill_in :password, with: user.password
+
+    click_on "Log In"
+
+    expect(current_path).to eq('/')
+
+    expect(page).to have_content("Welcome, #{user.username}")
+    expect(page).to have_link("Log Out")
+    expect(page).to_not have_link("Create User")
+    expect(page).to_not have_link("Login")
+
+    click_on "Log Out" 
+
+    expect(current_path).to eq('/')
+    expect(page).to_not have_link("Log Out")
+    expect(page).to have_link("Create User")
+    expect(page).to have_link("Login")
+
+  end 
+
    
 end
