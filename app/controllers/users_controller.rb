@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end 
 
   def show 
-    @user = User.find(session[:user_id])
+    current_user
   end 
 
 
