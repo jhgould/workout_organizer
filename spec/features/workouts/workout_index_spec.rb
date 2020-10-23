@@ -17,10 +17,10 @@ RSpec.describe 'Workout tests', type: :feature do
   end 
 
   it "workout index page displays workouts correctly" do  
-    workout_1 = Workout.create("workout_1")
-    workout_2 = Workout.create("workout_2")
-    workout_3 = Workout.create("workout_3")
-    workout_4 = Workout.create("workout_4")
+    workout_1 = Workout.create(name: "Workout_1")
+    workout_2 = Workout.create(name: "Workout_2")
+    workout_3 = Workout.create(name: "Workout_3")
+    workout_4 = Workout.create(name: "Workout_4")
     visit '/'
     click_on "Login"
     fill_in :username, with: @user_1.username
