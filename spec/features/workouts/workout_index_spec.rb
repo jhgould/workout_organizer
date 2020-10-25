@@ -35,4 +35,19 @@ RSpec.describe 'Workout tests', type: :feature do
     expect(page).to have_content("Workout_3")
     expect(page).to have_content("Workout_4")
   end 
+
+  it "workouts are links to the weeks for each workout" do 
+    workout_1 = Workout.create(name: "Workout_1")
+    workout_2 = Workout.create(name: "Workout_2")
+    workout_3 = Workout.create(name: "Workout_3")
+    workout_4 = Workout.create(name: "Workout_4")
+    visit '/'
+    click_on "Login"
+    fill_in :username, with: @user_1.username
+    fill_in :password, with: @user_1.password
+    click_on "Log In"
+    click_on "All Workouts"
+    click_on "Workout_2"
+    expect(current_path).to eq("/workouts/#{workout_2.id}")
+  end 
 end
