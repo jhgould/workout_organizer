@@ -37,10 +37,12 @@ RSpec.describe 'Workout tests', type: :feature do
   end 
 
   it "workouts are links to the weeks for each workout" do 
-    workout_1 = Workout.create(name: "Workout_1")
-    workout_2 = Workout.create(name: "Workout_2")
-    workout_3 = Workout.create(name: "Workout_3")
-    workout_4 = Workout.create(name: "Workout_4")
+    week_1 = Week.create(name: "Week 1")
+    week_2 = Week.create(name: "Week 2")
+    workout_1 = Workout.create(name: "Workout_1", weeks: [week_1, week_2])
+    workout_2 = Workout.create(name: "Workout_2", weeks: [week_1, week_2])
+    workout_3 = Workout.create(name: "Workout_3", weeks: [week_1, week_2])
+    workout_4 = Workout.create(name: "Workout_4", weeks: [week_1, week_2])
     visit '/'
     click_on "Login"
     fill_in :username, with: @user_1.username
@@ -49,5 +51,16 @@ RSpec.describe 'Workout tests', type: :feature do
     click_on "All Workouts"
     click_on "Workout_2"
     expect(current_path).to eq("/workouts/#{workout_2.id}")
+    #need to add weeks. Writing tests so user can create and delete them first
+  end 
+
+  xit "user can create and delete workouts" do 
+    workout_1 = Workout.create(name: "Workout_1")
+    click_on "Login"
+    fill_in :username, with: @user_1.username
+    fill_in :password, with: @user_1.password
+    click_on "Log In"
+    click_on "All Workouts"
+    click_on "Workout_1"
   end 
 end
