@@ -1,0 +1,4 @@
+class Week < ApplicationRecord
+
+
+end 
