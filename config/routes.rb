@@ -9,4 +9,11 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
+
+  get 'workouts/new', to: 'workouts#new'
+  post 'workouts', to: 'workouts#create'
+  get '/workouts', to: 'workouts#index'
+  get '/workouts/:id', to: 'workouts#show'
+
+
 end

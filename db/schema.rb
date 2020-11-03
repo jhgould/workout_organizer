@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_22_174822) do
+ActiveRecord::Schema.define(version: 2020_10_27_204427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,4 +20,15 @@ ActiveRecord::Schema.define(version: 2020_10_22_174822) do
     t.string "password_digest"
   end
 
+  create_table "weeks", force: :cascade do |t|
+    t.string "name"
+    t.bigint "workout_id"
+    t.index ["workout_id"], name: "index_weeks_on_workout_id"
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+  end
+
+  add_foreign_key "weeks", "workouts"
 end

@@ -1,0 +1,7 @@
+<p1>Here is a list of all of your workouts</p1>
+<p1><%=link_to "Create Workout", "/workouts/new"%></p1>
+<%@workouts.each do |workout|%>
+  <ol>
+    <li><%=link_to workout.name, "/workouts/#{workout.id}"%></li>
+  </ol>
+<%end%>
