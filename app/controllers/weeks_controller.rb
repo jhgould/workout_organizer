@@ -9,4 +9,8 @@ class WeeksController < ApplicationController
     redirect_to "/workouts/#{workout.id}"
   end 
 
+  def show 
+    @week = Week.find(params[:id])
+  end 
+
 end 
