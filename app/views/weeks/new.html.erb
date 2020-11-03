@@ -1,0 +1,6 @@
+<%= form_tag '/weeks', method: :post do %>
+  <%= label_tag :num_weeks %>
+  <%= number_field_tag :num_weeks, "1" %>
+  <%= hidden_field_tag :id, @id%>
+  <%= submit_tag "Add Weeks" %>
+<% end %>
