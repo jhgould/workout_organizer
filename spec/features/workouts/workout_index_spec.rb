@@ -75,4 +75,19 @@ RSpec.describe 'Workout tests', type: :feature do
     expect(current_path).to eq("/workouts")
     click_on "Workout 3"
   end 
+
+  it "user can delete a workout" do 
+    workout_1 = Workout.create(name: "Workout_1")
+    week_1 = Week.create!(name: "Week 1", workout: workout_1)
+    week_2 = Week.create!(name: "Week 2", workout: workout_1)
+    visit '/'
+    click_on "Login"
+    fill_in :username, with: @user_1.username
+    fill_in :password, with: @user_1.password
+    click_on "Log In"
+    visit "/workouts/#{workout_1.id}"
+    click_on "Delete Workout"
+    expect(current_path).to eq("/workouts")
+    expect(page).to_not have_content("Workout_1")
+  end 
 end
