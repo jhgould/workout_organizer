@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   delete 'weeks/:id', to: 'weeks#destroy'
 
 
+  post '/days/:week_id', to: 'days#create'
+  
+
 end
