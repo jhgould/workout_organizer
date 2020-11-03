@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   get '/workouts/:id', to: 'workouts#show'
   delete '/workouts/:id', to: 'workouts#destroy'
 
+  get 'weeks/:id/new', to: 'weeks#new'
+  post 'weeks', to: 'weeks#create'
+
 
 end

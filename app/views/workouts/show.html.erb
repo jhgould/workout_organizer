@@ -1,6 +1,8 @@
 <h1><%=@workout.name%></h1>
 <%@workout.weeks.each do |week|%>
-  <p1><%=week.name%></p1>
+<ol>
+  <p1><%= link_to week.name, "weeks/#{week.id}"%></p1>
+</ol>
 <%end%>
-
+<p1><%= link_to "Add workouts by week", "/weeks/#{@workout.id}/new"%></p1>
 <p1><%= link_to "Delete Workout", "/workouts/#{@workout.id}", method: "delete"%></p1>
