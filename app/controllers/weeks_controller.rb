@@ -13,4 +13,10 @@ class WeeksController < ApplicationController
     @week = Week.find(params[:id])
   end 
 
+  def destroy 
+    workout = Week.find(params[:id])
+    Week.destroy(params[:id])
+    redirect_to "/workouts/#{workout[:workout_id]}"
+  end 
+
 end 
