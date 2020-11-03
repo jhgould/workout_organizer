@@ -5,7 +5,7 @@ class WeeksController < ApplicationController
 
   def create 
     workout = Workout.find(params[:id])
-    workout.weeks.number_of_weeks(params[:num_weeks], workout)
+    workout.weeks.create_number_of_weeks(params[:num_weeks], workout)
     redirect_to "/workouts/#{workout.id}"
   end 
 
