@@ -53,6 +53,28 @@ RSpec.describe 'Weeks', type: :feature do
     click_on "Delete Week"
     expect(current_path).to eq("/workouts/#{@workout_2.id}")
     expect(page).to_not have_content("Week 1")
+  end
+  
+  it "when user creates a week, 7 days are created for each week" do 
+    visit '/'
+    click_on "Login"
+    fill_in :username, with: @user_1.username
+    fill_in :password, with: @user_1.password
+    click_on "Log In"
+    visit "/workouts/#{@workout_1.id}"
+
+    click_on "Add workouts by week"
+    fill_in :num_weeks, with: 4
+    click_on "Add Weeks"
+    click_on "Week 1"
+
+    expect(page).to have_content("Day 1")
+    expect(page).to have_content("Day 2")
+    expect(page).to have_content("Day 3")
+    expect(page).to have_content("Day 4")
+    expect(page).to have_content("Day 5")
+    expect(page).to have_content("Day 6")
+    expect(page).to have_content("Day 7")
   end 
 
 end
