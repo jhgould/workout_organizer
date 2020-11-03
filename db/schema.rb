@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_204427) do
+ActiveRecord::Schema.define(version: 2020_11_03_203639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "days", force: :cascade do |t|
+    t.string "name"
+    t.bigint "week_id"
+    t.index ["week_id"], name: "index_days_on_week_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
@@ -30,5 +36,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_204427) do
     t.string "name"
   end
 
+  add_foreign_key "days", "weeks"
   add_foreign_key "weeks", "workouts"
 end

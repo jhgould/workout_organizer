@@ -1,4 +1,13 @@
 <%=@week.name%>
+<%@week.days.each do |day|%>
+<ul>
+  <%=day.name%>
+</ul>
+<%end%>
 
+
+<% if @week.days.empty?%>
+  <p1><%= link_to "Create Days", "/days/#{@week.id}", method: "post"%></p1>
+<%end%>
 
 <p1><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p1>
