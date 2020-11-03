@@ -39,21 +39,19 @@ RSpec.describe 'Weeks', type: :feature do
     expect(page).to have_content("Week 1")
   end 
 
-  xit "user can delete weeks" do
+  it "user can delete weeks" do
+    week_1 = Week.create(name: "Week 1", workout: @workout_2)
+    week_2 = Week.create(name: "Week 2", workout: @workout_2)
     visit '/'
     click_on "Login"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    visit "/workouts/#{@workout_1.id}"
-
-    click_on "Add workouts by week"
-    fill_in :num_weeks, with: 4
-    click_on "Add Weeks"
+    visit "/workouts/#{@workout_2.id}"
 
     click_on "Week 1"
     click_on "Delete Week"
-    expect(current_path).to eq("/workouts/#{@workout_1.id}")
+    expect(current_path).to eq("/workouts/#{@workout_2.id}")
     expect(page).to_not have_content("Week 1")
   end 
 
