@@ -5,8 +5,18 @@ class WeeksController < ApplicationController
 
   def create 
     workout = Workout.find(params[:id])
-    workout.weeks.number_of_weeks(params[:num_weeks], workout)
+    workout.weeks.create_number_of_weeks(params[:num_weeks], workout)
     redirect_to "/workouts/#{workout.id}"
+  end 
+
+  def show 
+    @week = Week.find(params[:id])
+  end 
+
+  def destroy 
+    workout = Week.find(params[:id])
+    Week.destroy(params[:id])
+    redirect_to "/workouts/#{workout[:workout_id]}"
   end 
 
 end 
