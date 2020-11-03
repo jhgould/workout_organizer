@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'weeks/:id/new', to: 'weeks#new'
   post 'weeks', to: 'weeks#create'
   get 'weeks/:id', to: 'weeks#show'
+  delete 'weeks/:id', to: 'weeks#destroy'
 
 
 end
