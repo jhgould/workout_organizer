@@ -2,3 +2,5 @@
 <%@workout.weeks.each do |week|%>
   <p1><%=week.name%></p1>
 <%end%>
+
+<p1><%= link_to "Delete Workout", "/workouts/#{@workout.id}", method: "delete"%></p1>
