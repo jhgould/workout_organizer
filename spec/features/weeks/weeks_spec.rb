@@ -67,6 +67,8 @@ RSpec.describe 'Weeks', type: :feature do
     fill_in :num_weeks, with: 4
     click_on "Add Weeks"
     click_on "Week 1"
+    click_on "Create Days"
+  
 
     expect(page).to have_content("Day 1")
     expect(page).to have_content("Day 2")
