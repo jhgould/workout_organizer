@@ -1,5 +1,6 @@
 class Week < ApplicationRecord
     belongs_to :workout
+    has_many :days
 
     def self.create_number_of_weeks(num, workout)
         counter = 1
