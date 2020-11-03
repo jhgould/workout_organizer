@@ -7,4 +7,17 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end 
 
+  def new 
+  end 
+
+  def create 
+    Workout.create(workout_params)
+    redirect_to "/workouts"
+  end 
+
+  private 
+
+  def workout_params 
+   params.permit(:name)
+  end 
 end 
