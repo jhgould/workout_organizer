@@ -1,9 +1,10 @@
 require 'rails_helper'
 RSpec.describe 'Workout tests', type: :feature do 
   before :each do 
-    @user_1 = User.create(username: "user1", password: "test")
-    @user_2 = User.create(username: "user2", password: "test")
+    @user_1 = User.create!(username: "user1", password: "test")
+    @user_2 = User.create!(username: "user2", password: "test")
   end
+  
   it 'access workout index from welcome page' do 
     visit '/'
     click_on "Login"
@@ -17,10 +18,10 @@ RSpec.describe 'Workout tests', type: :feature do
   end 
 
   it "workout index page displays workouts correctly" do  
-    workout_1 = Workout.create(name: "Workout_1")
-    workout_2 = Workout.create(name: "Workout_2")
-    workout_3 = Workout.create(name: "Workout_3")
-    workout_4 = Workout.create(name: "Workout_4")
+    workout_1 = Workout.create!(name: "Workout_1", user: @user_1)
+    workout_2 = Workout.create!(name: "Workout_2", user: @user_1)
+    workout_3 = Workout.create!(name: "Workout_3", user: @user_1)
+    workout_4 = Workout.create!(name: "Workout_4", user: @user_1)
     visit '/'
     click_on "Login"
     fill_in :username, with: @user_1.username
@@ -34,10 +35,23 @@ RSpec.describe 'Workout tests', type: :feature do
     expect(page).to have_content("Workout_2")
     expect(page).to have_content("Workout_3")
     expect(page).to have_content("Workout_4")
+
+    visit '/'
+    click_on 'Log Out'
+    click_on "Login"
+    fill_in :username, with: @user_2.username
+    fill_in :password, with: @user_2.password
+    click_on "Log In"
+    click_on "All Workouts"
+    expect(page).to_not have_content("Workout_1")
+    expect(page).to_not have_content("Workout_2")
+    expect(page).to_not have_content("Workout_3")
+    expect(page).to_not have_content("Workout_4")
+
   end 
 
   it "workouts are links to the weeks for each workout" do 
-    workout_1 = Workout.create!(name: "Workout_1")
+    workout_1 = Workout.create!(name: "Workout_1", user: @user_1)
     week_1 = Week.create!(name: "Week 1", workout: workout_1)
     week_2 = Week.create!(name: "Week 2", workout: workout_1)
     # workout_2 = Workout.create(name: "Workout_2")
@@ -59,7 +73,7 @@ RSpec.describe 'Workout tests', type: :feature do
   end 
 
   it "user can create workouts" do 
-    workout_1 = Workout.create(name: "Workout_1")
+    workout_1 = Workout.create(name: "Workout_1", user: @user_1)
     week_1 = Week.create!(name: "Week 1", workout: workout_1)
     week_2 = Week.create!(name: "Week 2", workout: workout_1)
     visit '/'
@@ -77,7 +91,7 @@ RSpec.describe 'Workout tests', type: :feature do
   end 
 
   it "user can delete a workout" do 
-    workout_1 = Workout.create(name: "Workout_1")
+    workout_1 = Workout.create(name: "Workout_1", user: @user_1)
     week_1 = Week.create!(name: "Week 1", workout: workout_1)
     week_2 = Week.create!(name: "Week 2", workout: workout_1)
     visit '/'
