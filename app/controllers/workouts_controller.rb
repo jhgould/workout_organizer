@@ -1,7 +1,7 @@
 class WorkoutsController < ApplicationController 
   def index 
     @user = User.find(session[:user_id])
-    @workouts = Workout.all
+    # @workouts = Workout.all
   end 
 
   def show 
