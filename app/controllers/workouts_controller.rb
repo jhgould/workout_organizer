@@ -1,5 +1,6 @@
 class WorkoutsController < ApplicationController 
   def index 
+    @user = User.find(session[:user_id])
     @workouts = Workout.all
   end 
 
@@ -11,7 +12,8 @@ class WorkoutsController < ApplicationController
   end 
 
   def create 
-    Workout.create(workout_params)
+    user = User.find(session[:user_id])
+    Workout.create!(name: workout_params[:name], user: user )
     redirect_to "/workouts"
   end 
 
@@ -23,6 +25,6 @@ class WorkoutsController < ApplicationController
   private 
 
   def workout_params 
-   params.permit(:name)
+   params.permit(:name, :user)
   end 
 end 
