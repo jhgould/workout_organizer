@@ -26,7 +26,6 @@ RSpec.describe 'Days', type: :feature do
     click_on "Day 1"
     expect(current_path).to eq("/days/#{day_1.id}")
     expect(page).to have_content("Day 1")
-    click_on "Add Exercise"
   end 
 
 end
