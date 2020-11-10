@@ -3,8 +3,8 @@ RSpec.describe 'Weeks', type: :feature do
   before :each do 
     @user_1 = User.create(username: "user1", password: "test")
     @user_2 = User.create(username: "user2", password: "test")
-    @workout_1 = Workout.create(name: "Workout_1")
-    @workout_2 = Workout.create(name: "Workout_2")
+    @workout_1 = Workout.create(name: "Workout_1", user: @user_1)
+    @workout_2 = Workout.create(name: "Workout_2", user: @user_1)
   end
   it "create weeks for workout" do 
     visit '/'
