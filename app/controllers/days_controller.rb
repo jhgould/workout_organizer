@@ -5,4 +5,8 @@ class DaysController < ApplicationController
     redirect_to "/weeks/#{week.id}"
   end 
 
+  def show 
+    @day = Day.find(params[:id])
+  end 
+
 end 
