@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_04_232855) do
+ActiveRecord::Schema.define(version: 2020_11_12_223930) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 2020_11_04_232855) do
     t.string "name"
     t.bigint "week_id"
     t.index ["week_id"], name: "index_days_on_week_id"
+  end
+
+  create_table "exercises", force: :cascade do |t|
+    t.string "category"
+    t.string "muscle_group"
+    t.string "name"
+    t.integer "sets"
+    t.integer "reps"
+    t.integer "rest_time"
+    t.integer "weight"
+    t.bigint "day_id"
+    t.index ["day_id"], name: "index_exercises_on_day_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,6 +51,7 @@ ActiveRecord::Schema.define(version: 2020_11_04_232855) do
   end
 
   add_foreign_key "days", "weeks"
+  add_foreign_key "exercises", "days"
   add_foreign_key "weeks", "workouts"
   add_foreign_key "workouts", "users"
 end
