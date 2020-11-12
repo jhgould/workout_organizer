@@ -18,7 +18,24 @@ RSpec.describe 'Exercises', type: :feature do
   
   
   it "Exercises display correctly" do 
+    exercise_1 = Exercise.create!(category: "Upper Body", muscle_group: "Chest", name: "Bench Press", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_1)
+    exercise_2 = Exercise.create!(category: "Upper Body", muscle_group: "Chest", name: "Incline Bench Press", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_1)
+    exercise_2 = Exercise.create!(category: "Lower Body", muscle_group: "Legs", name: "Squats", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_2)
 
+    visit "/"
+    click_on "Login"
+    fill_in :username, with: @user_1.username
+    fill_in :password, with: @user_1.password
+    click_on "Log In"
+
+    visit "/days/#{@day_1.id}"
+    #create within blocks to test better
+    expect(page).to have_content("Bench Press")
+    expect(page).to have_content("Weight: 145")
+    expect(page).to have_content("Sets: 4")
+    expect(page).to have_content("Reps: 10")
+    expect(page).to have_content("Rest: 60 seconds")
+    expect(page).to_not have_content("Squats")
   end 
 
 end
