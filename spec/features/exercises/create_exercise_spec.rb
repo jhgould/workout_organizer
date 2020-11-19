@@ -26,11 +26,13 @@ RSpec.describe 'Exercises', type: :feature do
   it "Exercises display correctly" do 
     visit "/days/#{@day_1.id}"
     click_on "Add Exercise"
+    # save_and_open_page
     select('Upper Body', from: 'category')
     select('Chest', from: 'muscle_group')
     fill_in :name, with: "Bench Press"
-    fill_in :sets, with: 3
+    fill_in :sets, with: 4
     fill_in :reps, with: 10
+    fill_in :weight, with: 145
     fill_in :rest_time, with: 60
     
     click_on "Add"
