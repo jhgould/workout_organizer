@@ -1,4 +1,6 @@
-<%=@week.name%>
+<p class="reg"><%=@week.name%><p>
+
+
 <%@week.days.each do |day|%>
 <ul>
   <%= link_to day.name, "/days/#{day.id}"%>
@@ -7,7 +9,7 @@
 
 
 <% if @week.days.empty?%>
-  <p1><%= link_to "Create Days", "/days/#{@week.id}", method: "post"%></p1>
+  <p class='reg'><%= link_to "Create Days", "/days/#{@week.id}", method: "post"%></p>
 <%end%>
 
-<p1><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p1>
+<p class='reg'><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p>

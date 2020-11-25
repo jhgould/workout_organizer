@@ -1,4 +1,4 @@
-<h1><%=@workout.name%></h1>
+<h2 class="workout-heading"><%=@workout.name%></h2>
 <%@workout.weeks.each do |week|%>
 <ol>
   <p1><%= link_to week.name, "/weeks/#{week.id}"%></p1>
