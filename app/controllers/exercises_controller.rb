@@ -9,4 +9,9 @@ class ExercisesController < ApplicationController
     redirect_to "/days/#{day.id}"
   end 
 
+  def destroy 
+    Exercise.destroy(params[:id])
+    redirect_to "/days/#{params[:day_id]}"
+  end 
+
 end
