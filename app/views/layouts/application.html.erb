@@ -10,8 +10,19 @@
   </head>
 
   <body>
-    <top-nav>
+    <top-nav class="top-nav">
+      <%if current_user%>
+           <%= link_to "Home", '/'%>
+          <%= link_to "All Workouts", '/workouts'%>
+          <%= link_to "Log Out", '/logout'%>
+          <br>
+        <%else%>
+          <%= link_to "Create User", "/users/new" %>
+          <%= link_to "Login", "/login" %>
+      <%end%>
     </top-nav>
+    <br>
+    <br>
     <%= yield %>
   </body>
 </html>

@@ -1,15 +1,15 @@
-<p1><%=@day.name%></p1>
+<p class='reg'><%=@day.name%></p>
 
 
 <%@day.exercises.each do |exercise|%>
-  <ol>
+  <ul>
     <p1><%=exercise.name%></p1>
     <p1>Sets: <%=exercise.sets%></p1>
     <p1>Reps: <%=exercise.reps%></p1>
     <p1>Rest: <%=exercise.rest_time%> seconds</p1>
     <p1>Weight: <%=exercise.weight%></p1>
     <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%>
-  </ol>
+  </ul>
 <%end%>
 
- <%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%>
+ <p class='reg'><%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%><p>
