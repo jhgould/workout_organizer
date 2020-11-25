@@ -24,10 +24,9 @@ RSpec.describe 'Exercises ', type: :feature do
   
   it "User can delete an exercise" do 
     exercise_1 = Exercise.create!(category: "Upper Body", muscle_group: "Chest", name: "Bench Press", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_1)
-    exercise_2 = Exercise.create!(category: "Upper Body", muscle_group: "Chest", name: "Incline Bench Press", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_1)
-    exercise_3 = Exercise.create!(category: "Lower Body", muscle_group: "Legs", name: "Squats", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_2)
     visit "/days/#{@day_1.id}"
-    #create within blocks so I can delete 
+    click_on "Delete"
+    expect(page).to_not have_content("Bench Press")
   end 
 
 end
