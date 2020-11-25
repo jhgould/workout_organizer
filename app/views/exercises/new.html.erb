@@ -1,0 +1,16 @@
+<%= form_tag '/exercises', method: :post do %>
+  <%= select_tag "category", raw("<option>Upper Body</option><option>Lower Body</option><option>Full Body</option>"), multiple: true %>
+  <%= select_tag "muscle_group", raw("<option>Chest</option><option>Legs</option><option>Abs</option>"), multiple: true %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <%= label_tag :sets %>
+  <%= number_field_tag :sets %>
+  <%= label_tag :reps %>
+  <%= number_field_tag :reps %>
+  <%= label_tag :weight %>
+  <%= number_field_tag :weight %>
+  <%= label_tag :rest_time %>
+  <%= number_field_tag :rest_time %>
+  <%= submit_tag "Add Weeks" %>
+   <%= hidden_field_tag :id, @id%>
+<% end %>

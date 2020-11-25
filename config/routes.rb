@@ -24,5 +24,9 @@ Rails.application.routes.draw do
   post '/days/:week_id', to: 'days#create'
   get '/days/:id', to: 'days#show'
   
+  
+  get '/days/:id/exercises/new', to: 'exercises#new'
+  post 'exercises', to: 'exercises#create'
+  delete '/day/:day_id/exercises/:id', to: 'exercises#destroy'
 
 end
