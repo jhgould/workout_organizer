@@ -53,7 +53,6 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     expect(current_path).to eq('/')
 
-    expect(page).to have_content("Welcome, #{user.username}")
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
     expect(page).to_not have_link("Login")
@@ -93,7 +92,6 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     expect(current_path).to eq('/')
 
-    expect(page).to have_content("Welcome, #{user.username}")
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
     expect(page).to_not have_link("Login")
