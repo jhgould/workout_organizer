@@ -1,4 +1,7 @@
-<p class="reg"> <%="Hello #{@name}, you have logged on to the workout organizer webpage"%> <p>
-<br>
+
+<%if current_user%>
+  <p class="reg"> <%="Hello #{@name}, you have logged on to the workout organizer webpage" %> <p>
+<%end%>
+
 
 

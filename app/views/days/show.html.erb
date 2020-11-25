@@ -3,11 +3,11 @@
 
 <%@day.exercises.each do |exercise|%>
   <ul>
-    <p1><%=exercise.name%></p1>
-    <p1>Sets: <%=exercise.sets%></p1>
-    <p1>Reps: <%=exercise.reps%></p1>
-    <p1>Rest: <%=exercise.rest_time%> seconds</p1>
-    <p1>Weight: <%=exercise.weight%></p1>
+    <p class="white"><%=exercise.name%></p>
+    <p class="white">Sets: <%=exercise.sets%></p>
+    <p class="white">Reps: <%=exercise.reps%></p>
+    <p class="white">Rest: <%=exercise.rest_time%> seconds</p>
+    <p class="white">Weight: <%=exercise.weight%></p>
     <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%>
   </ul>
 <%end%>
