@@ -8,13 +8,18 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+    </div>
   <body>
     <top-nav class="top-nav">
       <%if current_user%>
-           <%= link_to "Home", '/'%>
-          <%= link_to "All Workouts", '/workouts'%>
-          <%= link_to "Log Out", '/logout'%>
+          <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a class="dropdown"> <%= link_to "Home", '/'%></a>
+          <a class="dropdown"><%= link_to "All Workouts", '/workouts'%></a>
+          <a class="dropdown"><%= link_to "Log Out", '/logout'%></a>
+        </div>
+
           <br>
         <%else%>
           <%= link_to "Create User", "/users/new" %>
