@@ -69,11 +69,17 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
     fill_in :password, with: "wrong password"
 
     click_on "Log In"
+    
+    expect(current_path).to eq('/login')
+
+    fill_in :username, with: "wrong name"
+    fill_in :password, with: "wrong password"
+
+    click_on "Log In"
 
     expect(current_path).to eq('/login')
 
     # expect(page).to have_content("Credintials are bad")
-
   end 
 
   it "user can log out" do 
