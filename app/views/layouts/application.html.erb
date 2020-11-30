@@ -21,16 +21,16 @@
     <top-nav class="top-nav">
       <%if current_user%>
           <div class="dropdown">
-      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <button onclick="myFunction()" class="dropbtn">Menu</button>
         <div id="myDropdown" class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
+          <a class="dropdown"> <%= link_to "Home", '/'%></a>
+          <a class="dropdown"><%= link_to "All Workouts", '/workouts'%></a>
+          <a class="dropdown"><%= link_to "Log Out", '/logout'%></a>
         </div>
 
-           <%= link_to "Home", '/'%>
-          <%= link_to "All Workouts", '/workouts'%>
-          <%= link_to "Log Out", '/logout'%>
+           <%# <%= link_to "Home", '/'%>
+          <%# <%= link_to "All Workouts", '/workouts'%> %>
+          <%# <%= link_to "Log Out", '/logout'%> %> %>
           <br>
         <%else%>
           <%= link_to "Create User", "/users/new" %>
