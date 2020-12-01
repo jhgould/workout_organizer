@@ -56,7 +56,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
     expect(page).to_not have_link("Login")
-    expect(page).to have_content("Hello #{user.username}, you have logged on to the workout organizer webpage")
+    expect(page).to have_content("Welcome #{user.username}, you have logged on to the workout organizer webpage")
   end 
 
   it "user cannot log in with bad credintials" do 
