@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id 
         redirect_to '/'
-        flash[:notice] = "Welcome"
+        flash[:notice] = "Welcome #{@user.username}, you have logged on to the workout organizer webpage"
       else 
         flash[:error] = "Credintials are bad"
         render :new
