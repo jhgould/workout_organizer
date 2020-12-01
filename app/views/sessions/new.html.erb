@@ -1,9 +1,16 @@
+<br>
 <p class="reg">Please fill in your account info:</p>
 
-<%= form_tag '/login', method: :post do%>
-  <p class="reg"><%= label_tag :username%></p>
-  <%= text_field_tag :username%>
-  <p class="reg"> <%= label_tag :password%></p>
-  <%= password_field_tag :password%>
-  <%= submit_tag "Log In"%>
+  <%= form_tag '/login', method: :post do%>
+      <% label_tag :username%>
+      <%= text_field_tag :username, nil, placeholder: "User Name"%>
+      <br>
+      <%label_tag :password%>
+      <%= password_field_tag :password, nil, placeholder: "Password"%>
+      <br>
+      <br>
+    <%= submit_tag "Log In"%>
 <%end%>
+
+
+
