@@ -1,6 +1,6 @@
 <br>
 <p class="reg">Please fill in your account info:</p>
-
+<div class="form">
   <%= form_tag '/login', method: :post do%>
       <% label_tag :username%>
       <%= text_field_tag :username, nil, placeholder: "User Name"%>
@@ -10,7 +10,8 @@
       <br>
       <br>
     <%= submit_tag "Log In"%>
-<%end%>
+  <%end%>
+</div>
 
 
 
