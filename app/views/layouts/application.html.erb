@@ -20,9 +20,9 @@
           <a class="dropdown"><%= link_to "Log Out", '/logout'%></a>
         </div>
 
-          <br>
+       
         <%else%>
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid bg-dark text-white">
           <div class="container text-center">
             <h1 class="display-2">Welcome to Workout Organizer!</h1>
               <p class="lead">This is an app for people to organize and track their custom workouts!</p>
@@ -40,8 +40,7 @@
 
 
     
-    <br>
-    <br>
+    
 
     <% flash.each do |name, msg| %>
       <div class= "<%=name%>-flash">
