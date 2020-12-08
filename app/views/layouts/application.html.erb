@@ -10,10 +10,10 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
     </div>
-  <body>
-    <top-nav class="top-nav">
+  <body class="bg-dark text-whtie">
+   
       <%if current_user%>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-info">
         <div class="container-fluid">
           <a class="navbar-brand order-1" href="/">Workout Organizer</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,6 @@
 
 
 <%end%>
-    </top-nav>
 
 
     
