@@ -1,21 +1,19 @@
 <div class="container-fluid mx-0">
   <div class="container ml-3 text-white">
-    
     <p class="display-5 mt-4 ml-3"><%=@workout.name%></p>
       <%@workout.weeks.each do |week|%>
         <ul class="list-group">
           <div class="container-fluid">
             <li class="list-group-item list-group-item-dark list-group-item-action display-6" style="width: 400px;"><%= link_to week.name, "/weeks/#{week.id}"%></li>
           </div>
-      </ul>
-    <%end%>
-    <%# <p1><%= link_to "Add workouts by week", "/weeks/#{@workout.id}/new"%></p1> 
-      <div class="btn btn-primary text-white mt-3 ml-3">
-        <%=link_to "Add workouts by week", "/weeks/#{@workout.id}/new", :class => "btn"%>
-      </div>
-      <div class="btn btn-primary text-white mt-3 ml-3">
-        <%=link_to "Delete Workout", "/workouts/#{@workout.id}",method: "delete", :class => "btn"%>
-      </div>
-  </div>
+        </ul>
+      <%end%>
 
+    <div class="btn btn-primary text-white mt-3 ml-3">
+      <%=link_to "Add workouts by week", "/weeks/#{@workout.id}/new", :class => "btn"%>
+    </div>
+    <div class="btn btn-primary text-white mt-3 ml-3">
+      <%=link_to "Delete Workout", "/workouts/#{@workout.id}",method: "delete", :class => "btn"%>
+    </div>
+  </div>
 </div>
