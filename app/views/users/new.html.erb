@@ -1,14 +1,18 @@
-<br>
-<p class=reg>Please create account:</p>
-<div class="form">
-  <%= form_tag '/users', method: :post do %>
-    <%label_tag :username %>
-    <%= text_field_tag :username, nil, placeholder: "Username" %>
-    <br>
-    <% label_tag :password %>
-    <%= password_field_tag :password, nil, placeholder: "Password" %>
-    <br>
-    <br>
-    <%= submit_tag "Create" %>
-  <% end %>
+<div class="container-fluid text-center text-white">
+  <p class=reg>Please create account:</p>
+    <div class="form">
+      <%= form_tag '/users', method: :post do %>
+        <div class="mb-3">
+          <% label_tag :username%>
+          <%= text_field_tag :username, nil, placeholder: "User Name"%>
+        </div>
+        <div class="mb-3">
+          <%label_tag :password%>
+          <%= password_field_tag :password, nil, placeholder: "Password"%>
+        </div>
+        <%= button_tag(type: "submit", class: "btn btn-primary") do %>
+            Create
+        <% end %>
+      <% end %>
+    </div>
 </div>

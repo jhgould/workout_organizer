@@ -1,6 +1,6 @@
 class Day < ApplicationRecord 
-  belongs_to :week
-  has_many :exercises
+  belongs_to :week 
+  has_many :exercises, dependent: :destroy
 
   def self.create_days(week)
     counter = 1
