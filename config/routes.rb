@@ -29,6 +29,6 @@ Rails.application.routes.draw do
   post 'exercises', to: 'exercises#create'
   delete '/day/:day_id/exercises/:id', to: 'exercises#destroy'
 
-  get '/profile', to: 'profile#show'
+  get '/profile', to: 'profiles#show'
 
 end
