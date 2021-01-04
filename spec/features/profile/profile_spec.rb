@@ -20,13 +20,13 @@ RSpec.describe 'User Profile', type: :feature do
     fill_in :password, with: @user_1.password
     click_on "Log In"
   end
+  
   it "Pofile link is located in nav bar and brings user to profile page" do 
     within '#top-nav' do 
       expect(page).to have_link("Profile")
-      
       click_on "Profile"
-      
-      expect(current_path).to eq('/profile')
     end 
+    
+    expect(current_path).to eq('/profile')
   end 
 end

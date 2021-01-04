@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/users/new', to: 'users#new'
   post '/users', to: "users#create"
-  get '/profile', to: 'users#show'
+  # get '/profile', to: 'users#show'
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -28,5 +28,7 @@ Rails.application.routes.draw do
   get '/days/:id/exercises/new', to: 'exercises#new'
   post 'exercises', to: 'exercises#create'
   delete '/day/:day_id/exercises/:id', to: 'exercises#destroy'
+
+  get '/profile', to: 'profile#show'
 
 end
