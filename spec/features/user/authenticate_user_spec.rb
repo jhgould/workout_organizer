@@ -20,22 +20,23 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
     # expect(page).to have_content("Welcome, test_user")
   end 
 
-  it "keeps user loggied in after registering" do 
-    visit "/"
-    click_on "Create User"
+  #unnececary test. Profile link has been repourposed for a legit user profile
+  # xit "keeps user logged in after registering" do 
+  #   visit "/"
+  #   click_on "Create User"
     
-    username = "funbucket13"
-    password = "test"
+  #   username = "funbucket13"
+  #   password = "test"
 
-    fill_in :username, with: username
-    fill_in :password, with: password    
+  #   fill_in :username, with: username
+  #   fill_in :password, with: password    
 
-    click_on "Create"
+  #   click_on "Create"
 
-    visit '/profile'
+  #   visit '/profile'
 
-    expect(page).to have_content("Welcome, #{username}")
-  end 
+  #   expect(page).to have_content("Welcome, #{username}")
+  # end 
 
   it "can log in with a existing account" do 
     user = User.create(username: "thedude69", password: "test")
