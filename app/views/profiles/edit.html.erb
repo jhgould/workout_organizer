@@ -1,0 +1,13 @@
+<%= form_tag "/profile", method: :patch do %>
+  <%= label_tag "Name: " %>
+  <%= text_field_tag :name, @profile.name %><br><br>
+  <%= label_tag "Age: " %>
+  <%= text_field_tag :age, @profile.age %><br><br>
+  <%= label_tag "Height: " %>
+  <%= text_field_tag :height, @profile.height %><br><br>
+  <%= label_tag "Weight: " %>
+  <%= text_field_tag :weight, @profile.weight %><br><br>
+  <%= label_tag "Goal Weight: " %>
+  <%= text_field_tag :goal_weight, @profile.goal_weight %><br><br>
+  <%= submit_tag "Submit" %>
+<% end %>
