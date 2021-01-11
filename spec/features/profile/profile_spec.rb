@@ -39,5 +39,31 @@ RSpec.describe 'User Profile', type: :feature do
     expect(page).to have_content(6)
   end 
 
+  it "user can edit prfile" do 
+    within '#top-nav' do 
+      click_on "Profile"
+    end 
+    
+    fill_in "name", with: "Fun Bucket"
+    fill_in "age", with: 26
+    fill_in "height", with: 6
+    fill_in "weight", with: 180
+    fill_in "goal_weight", with: 160
+    click_button "Submit"
+
+    click_on "Edit"
+
+    fill_in "name", with: "Bucket"
+    fill_in "age", with: 56
+    fill_in "height", with: 9
+    fill_in "weight", with: 170
+    click_button "Submit"
+   
+    expect(current_path).to eq("/profile")
+    expect(page).to have_content("Bucket")
+    expect(page).to have_content(56)
+    expect(page).to have_content(160)
+  end 
+
 
 end
