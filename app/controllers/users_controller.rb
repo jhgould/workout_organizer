@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def create 
     new_user = User.create(user_params)
-    Profile.create!(user_id: new_user.id)
+    Profile.create(user_id: new_user.id)
     session[:user_id] = new_user.id
     redirect_to "/"
   end 
