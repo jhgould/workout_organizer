@@ -30,5 +30,7 @@ Rails.application.routes.draw do
   delete '/day/:day_id/exercises/:id', to: 'exercises#destroy'
 
   get '/profile', to: 'profiles#show'
+  get '/profile/edit', to: 'profiles#edit'
+  patch '/profile', to: 'profiles#update'
 
 end
