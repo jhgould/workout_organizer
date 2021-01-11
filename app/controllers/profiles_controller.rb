@@ -4,8 +4,11 @@ class ProfilesController < ApplicationController
     user = User.find(current_user.id)
     @profile = Profile.find_by(user_id: user.id)
     if @profile.name == nil 
-      redirect_to "/profile/edit"
+      redirect_to "/profile/new"
     end 
+  end 
+  
+  def new 
   end 
 
   def edit 

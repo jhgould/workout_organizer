@@ -18,7 +18,7 @@ RSpec.describe 'User Profile', type: :feature do
     within '#top-nav' do 
       click_on "Profile"
     end 
-    expect(current_path).to eq('/profile/edit')
+    expect(current_path).to eq('/profile/new')
   end 
 
   it "User can update profile from edit page" do 
