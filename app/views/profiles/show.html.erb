@@ -1,9 +1,26 @@
-<%=@profile.name%>
-<%=@profile.age%>
-<%=@profile.height%>
-<%=@profile.weight%>
-<%=@profile.goal_weight%>
 
-<div class="btn btn-primary text-white mt-3 ml-3">
-  <%=link_to "Edit", "/profile/edit", :class => "btn"%>
+<div class="container align-items-center">
+  <div class="row">
+    <div class="col-sm">
+      <div class="text-center text-white">
+        <ul style="list-style-type:none;">
+          <li><%= image_tag "empty_profile_picture.webp", style: 'height:10vw;width:10vw' %></li>
+          <li><%=@profile.name%></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm">
+      <ul class="list-group list-group-flush text-white text-center" style="list-style-type:none;">
+        <li class="list-group-ite-secondary"><p1>Age: </p1><%=@profile.age%></li>
+        <li class="list-group-ite-secondary"><p1>Height: </p1><%=@profile.height%></li>
+        <li class="list-group-ite-secondary"><p1>Weight: </p1><%=@profile.weight%></li>
+        <li class="list-group-ite-secondary"><p1>Goal Weight: </p1><%=@profile.goal_weight%></li>
+      </ul>
+    </div>
+    <div class="col-sm text-center">
+      <div class="btn btn-primary text-white mt-3 ml-3">
+        <%=link_to "Edit", "/profile/edit", :class => "btn"%>
+      </div>
+    </div>
+  </div>
 </div>
