@@ -1,15 +1,32 @@
-<p class='reg'><%=@day.name%></p>
 
-
-<%@day.exercises.each do |exercise|%>
-  <ul>
-    <p class="white"><%=exercise.name%></p>
-    <p class="white">Sets: <%=exercise.sets%></p>
-    <p class="white">Reps: <%=exercise.reps%></p>
-    <p class="white">Rest: <%=exercise.rest_time%> seconds</p>
-    <p class="white">Weight: <%=exercise.weight%></p>
-    <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%>
-  </ul>
-<%end%>
-
- <p class='reg'><%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%><p>
+<div class="container text-white">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-3 text-center"><%=@day.name%></h1>
+    </div>
+  </div>
+  <%@day.exercises.each do |exercise|%>
+    <div class="row">
+      <div class="col">
+        <p> <%=exercise.name%></p>
+      </div>
+      <div class="col">
+        <p> Sets: <%=exercise.sets%></p>
+      </div>
+      <div class="col">
+        <p> Reps: <%=exercise.reps%></p>
+      </div>
+      <div class="col">
+         <p> Weight: <%=exercise.weight%></p>
+      </div>
+      <div class="col">
+        <p> Rest: <%=exercise.rest_time%> seconds</p>
+      </div>
+      <div class="col">
+        <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%>
+      </div>
+      
+    </div>
+  <%end%>
+  <p><%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%><p>
+</div>
