@@ -7,6 +7,7 @@ class UsersController < ApplicationController
     Profile.create(user_id: new_user.id)
     session[:user_id] = new_user.id
     redirect_to "/"
+    flash[:notice] = "Welcome to the Workout Organizer! Since you are new please update your profile information."
   end 
 
   def show 
