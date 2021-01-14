@@ -3,6 +3,9 @@ RSpec.describe 'Weeks', type: :feature do
   before :each do 
     @user_1 = User.create(username: "user1", password: "test")
     @user_2 = User.create(username: "user2", password: "test")
+    @profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: @user_1.id)
+    @profile2 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: @user_2.id)
+
     @workout_1 = Workout.create(name: "Workout_1", user: @user_1)
     @workout_2 = Workout.create(name: "Workout_2", user: @user_1)
   end

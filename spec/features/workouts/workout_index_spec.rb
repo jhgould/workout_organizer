@@ -3,6 +3,8 @@ RSpec.describe 'Workout tests', type: :feature do
   before :each do 
     @user_1 = User.create!(username: "user1", password: "test")
     @user_2 = User.create!(username: "user2", password: "test")
+    @profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: @user_1.id)
+    @profile2 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: @user_2.id)
   end
   
   it 'access workout index from welcome page' do 
@@ -11,7 +13,6 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    
     expect(current_path).to eq("/")
     click_on "All Workouts"
     expect(current_path).to eq("/workouts")

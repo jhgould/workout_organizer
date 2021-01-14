@@ -21,6 +21,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
   it "can log in with a existing account" do 
     user = User.create(username: "thedude69", password: "test")
+    profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: user.id)
 
     visit "/"
 
@@ -38,7 +39,6 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
     expect(page).to_not have_link("Login")
-    expect(page).to have_content("Welcome #{user.username}, you have logged on to the workout organizer webpage")
   end 
 
   it "user cannot log in with bad credintials" do 
@@ -69,6 +69,8 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
   it "user can log out" do 
     user = User.create(username: "thedude69", password: "test")
+    profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: user.id)
+
 
     visit "/"
 

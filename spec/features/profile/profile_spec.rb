@@ -65,5 +65,57 @@ RSpec.describe 'User Profile', type: :feature do
     expect(page).to have_content(160)
   end 
 
+  it "new user is told to update profile by flash message" do 
+    click_on "Log Out"
+    click_on "Login"
+    fill_in :username, with: "funbucket"
+    fill_in :password, with: "password"
+    click_on "Log In"
+    new_user_message = "Welcome to the Workout Organizer! Since you are new please update your profile information."
+    expect(page).to have_content(new_user_message)
+
+    # click_on "Profile"
+
+    # fill_in "name", with: "Fun Bucket"
+    # fill_in "age", with: 26
+    # fill_in "height", with: 6
+    # fill_in "weight", with: 180
+    # fill_in "goal_weight", with: 160
+    # click_button "Submit"
+    # click_on "Log Out"
+
+    # click_on "Login"
+    # fill_in :username, with: "funbucket"
+    # fill_in :password, with: "password"
+    # click_on "Log In"
+    # exsisting_user_message = "Welcome back Fun Bucket!"
+    # expect(page).to have_content(exsisting_user_message)
+  end 
+
+  it "existing user is told welcome back 'user name' " do 
+    click_on "Log Out"
+    click_on "Login"
+    fill_in :username, with: "funbucket"
+    fill_in :password, with: "password"
+    click_on "Log In"
+    
+    click_on "Profile"
+    fill_in "name", with: "Fun Bucket"
+    fill_in "age", with: 26
+    fill_in "height", with: 6
+    fill_in "weight", with: 180
+    fill_in "goal_weight", with: 160
+    click_button "Submit"
+    click_on "Log Out"
+
+    click_on "Login"
+    fill_in :username, with: "funbucket"
+    fill_in :password, with: "password"
+    click_on "Log In"
+    exsisting_user_message = "Welcome back Fun Bucket!"
+    expect(page).to have_content(exsisting_user_message)
+
+  end 
+
 
 end
