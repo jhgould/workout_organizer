@@ -1,0 +1,18 @@
+<%= form_tag "/days", method: :patch do %>
+  <%= label_tag "Day 1: " %>
+  <%= text_field_tag :day_1, @week.days[0].name %><br><br>
+  <%= label_tag "Day 2: " %>
+  <%= text_field_tag :day_2, @week.days[1].name %><br><br>
+  <%= label_tag "Day 3: " %>
+  <%= text_field_tag :day_3, @week.days[2].name %><br><br>
+  <%= label_tag "Day 4: " %>
+  <%= text_field_tag :day_4, @week.days[3].name %><br><br>
+  <%= label_tag "Day 5: " %>
+  <%= text_field_tag :day_5, @week.days[4].name %><br><br>
+  <%= label_tag "Day 6: " %>
+  <%= text_field_tag :day_6, @week.days[5].name %><br><br>
+  <%= label_tag "Day 7: " %>
+  <%= text_field_tag :day_7, @week.days[6].name %><br><br>
+  <%= hidden_field_tag 'week', @week.id%>
+  <%= submit_tag "Submit" %>
+<% end %>
