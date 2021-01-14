@@ -3,12 +3,17 @@ class SessionsController < ApplicationController
   end 
 
   def create 
-  
     if @user = User.find_by(username: params[:username])
       if @user.authenticate(params[:password])
         session[:user_id] = @user.id 
         redirect_to '/'
-        flash[:notice] = "Welcome #{@user.username}, you have logged on to the workout organizer webpage"
+        profile = Profile.find_by(user_id: @user.id)
+        # binding.pry
+          if profile.name 
+            flash[:notice] = "Welcome back #{profile.name}!"
+          else  
+            flash[:notice] = "Welcome to the Workout Organizer! Since you are new please update your profile information."
+          end 
       else 
         flash[:error] = "Credintials are bad"
         render :new
@@ -22,7 +27,7 @@ end
   def destroy
     session.delete(:user_id)
     redirect_to '/'
-    flash[:notice] = "You have succesfully logged out!"
+    flash[:success] = "You have succesfully logged out!"
   end 
 
 end 

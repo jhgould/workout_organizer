@@ -7,9 +7,12 @@ RSpec.describe 'Days', type: :feature do
     @workout_2 = Workout.create!(name: "Workout 1", user: @user_2)
     @week_1 = Week.create!(name: "Week 1", workout: @workout_1)
     @week_2 = Week.create!(name: "Week 2", workout: @workout_2)
+    @profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: @user_1.id)
+    @profile2 = Profile.create!(name: "guy1", age: 23, height: 4, weight: 5, user_id: @user_2.id)
   end
   
   it "Days display correctly" do 
+
     day_1 = Day.create!(name: "Day 1", week: @week_1)
     day_2 = Day.create!(name: "Day 2", week: @week_1)
     day_3 = Day.create!(name: "Day 3", week: @week_1)
