@@ -13,3 +13,4 @@
 <%end%>
 
 <p class='reg'><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p>
+<p class='reg'><%= link_to "Edit", "/days/#{@week.id}", method: "patch"%></p>

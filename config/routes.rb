@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   
   post '/days/:week_id', to: 'days#create'
   get '/days/:id', to: 'days#show'
+  patch '/days/:week_id', to: 'days#edit'
+  patch '/days', to: 'days#update'
   
   
   get '/days/:id/exercises/new', to: 'exercises#new'
