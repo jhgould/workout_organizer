@@ -10,12 +10,12 @@ class Day < ApplicationRecord
     end 
   end 
 
-  def self.update_day(days, update_params)
+  def self.update_day_names(days, update_params)
     counter = 1
     days.each do |day|
       update = "day_#{counter}"
-      day.name = update_params[update.to_sym]
-      day.save!
+       day.name = update_params[update.to_sym]
+        day.save!
       counter += 1
     end 
   end 
