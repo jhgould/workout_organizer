@@ -8,9 +8,6 @@
 <%end%>
 
 
-<% if @week.days.empty?%>
-  <p class='reg'><%= link_to "Create Days", "/days/#{@week.id}", method: "post"%></p>
-<%end%>
 
 <p class='reg'><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p>
 <p class='reg'><%= link_to "Edit", "/days/#{@week.id}", method: "patch"%></p>

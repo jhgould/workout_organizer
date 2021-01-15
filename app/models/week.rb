@@ -10,5 +10,13 @@ class Week < ApplicationRecord
         end 
     end
 
-
+    def self.create_days_for_week(weeks)
+        weeks.each do |week|
+           counter = 1
+            7.times do 
+                Day.create(name: "Day #{counter}", week: week)
+                counter += 1
+            end  
+        end 
+    end 
 end 

@@ -58,7 +58,7 @@ RSpec.describe 'Weeks', type: :feature do
     expect(page).to_not have_content("Week 1")
   end
   
-  it "when user creates a week, 7 days are created for each week" do 
+  it "when user creates a week, 7 days are created automatically for each week" do 
     visit '/'
     click_on "Login"
     fill_in :username, with: @user_1.username
@@ -70,7 +70,7 @@ RSpec.describe 'Weeks', type: :feature do
     fill_in :num_weeks, with: 4
     click_on "Add Weeks"
     click_on "Week 1"
-    click_on "Create Days"
+    # click_on "Create Days"
   
 
     expect(page).to have_content("Day 1")
