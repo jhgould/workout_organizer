@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController 
-  
+  before_action :is_logged_in
   def show 
     user = User.find(current_user.id)
     @profile = Profile.find_by(user_id: user.id)
