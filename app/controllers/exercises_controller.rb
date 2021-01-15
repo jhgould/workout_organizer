@@ -1,4 +1,5 @@
 class ExercisesController < ApplicationController 
+  before_action :is_logged_in
   def new 
     @id = params[:id]
   end 

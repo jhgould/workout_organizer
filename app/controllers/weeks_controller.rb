@@ -1,4 +1,8 @@
 class WeeksController < ApplicationController
+
+  before_action :is_logged_in
+  
+  
   def new 
     @id = params[:id]
   end 
@@ -12,8 +16,7 @@ class WeeksController < ApplicationController
   end 
 
   def show 
-    @week = Week.find(params[:id])
-  end 
+    @week = Week.find(params[:id]) end 
 
   def destroy 
     workout = Week.find(params[:id])

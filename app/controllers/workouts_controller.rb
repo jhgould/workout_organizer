@@ -1,4 +1,6 @@
 class WorkoutsController < ApplicationController 
+  before_action :is_logged_in
+  
   def index 
     @user = User.find(session[:user_id])
     # @workouts = Workout.all
