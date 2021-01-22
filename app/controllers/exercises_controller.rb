@@ -15,4 +15,7 @@ class ExercisesController < ApplicationController
     redirect_to "/days/#{params[:day_id]}"
   end 
 
+  def edit
+  end 
+
 end
