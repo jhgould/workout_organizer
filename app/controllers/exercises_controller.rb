@@ -21,8 +21,6 @@ class ExercisesController < ApplicationController
 
   def update
     exercise = Exercise.find(params[:id]) 
-    # category = params[:category].pop
-    # muscle_group = params[:muscle_group].pop
     exercise.update!(category: params[:category], muscle_group: params[:muscle_group], name: params[:name], sets: params[:sets], reps: params[:reps], weight: params[:weight], rest_time: params[:rest_time])
     exercise.save!
     redirect_to "/days/#{exercise.day_id}"
