@@ -30,14 +30,14 @@ RSpec.describe 'Exercises', type: :feature do
     visit "/days/#{@day_1.id}"
     click_on "Edit"
     expect(current_path).to eq("/exercises/#{exercise_1.id}/edit")
+    select('Upper Body', from: 'category')
+    select('Chest', from: 'muscle_group')
     fill_in :name, with: "Incline Bench"
     fill_in :sets, with: 100
     click_on "Update"
     expect(current_path).to eq("/days/#{@day_1.id}")
-    expect(page).to_have content("Incline Bench")
-    save_and_open_page
-    expect(page).to_have content(100)
-    expect(page).to_have content("Chest")
+    expect(page).to have_content("Incline Bench")
+    expect(page).to have_content(100)
   end 
 
 end
