@@ -1,13 +1,20 @@
-<p class="reg"><%=@week.name%><p>
+<div class="container-fluid mx-0">
+  <div class="container ml-3 text-white">
+    <p class="display-5 mt-4 ml-3"><%=@week.name%></p>
+    <%@week.days.each do |day|%>      
+      <ul class="list-group">
+        <div class="container-fluid">
+          <li class="list-group-item list-group-item-dark list-group-item-action display-6" style="width: 400px;"><%= link_to day.name, "/days/#{day.id}"%></li>
+        </div>
+      </ul>
+      <%end%>
+      <div class="btn btn-primary text-white mt-3 ml-3">
+        <%=link_to "Edit", "/days/#{@week.id}", method: "patch", :class => "btn"%>
+      </div>
+      <div class="btn btn-primary text-white mt-3 ml-3">
+        <%=link_to "Delete Week", "/weeks/#{@week.id}",method: "delete", :class => "btn"%>
+      </div>
+  </div>
+</div>
 
 
-<%@week.days.each do |day|%>
-<ul>
-  <%= link_to day.name, "/days/#{day.id}"%>
-</ul>
-<%end%>
-
-
-
-<p class='reg'><%= link_to "Delete Week", "/weeks/#{@week.id}", method: "delete"%></p>
-<p class='reg'><%= link_to "Edit", "/days/#{@week.id}", method: "patch"%></p>
