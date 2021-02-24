@@ -1,3 +1,14 @@
-ul.workouts {
+// ul.workouts {
+//   list-style-type: none;
+// }
+
+li.exercises {
   list-style-type: none;
+  background: #90afc5; 
+  padding-left: 25px;
+
+}
+
+li.exercises:nth-child(odd) { 
+  background: #336B87; 
 }
