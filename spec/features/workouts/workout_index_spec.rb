@@ -9,11 +9,11 @@ RSpec.describe 'Workout tests', type: :feature do
   
   it 'access workout index from welcome page' do 
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/home")
     click_on "All Workouts"
     expect(current_path).to eq("/workouts")
   end 
@@ -24,11 +24,11 @@ RSpec.describe 'Workout tests', type: :feature do
     workout_3 = Workout.create!(name: "Workout_3", user: @user_1)
     workout_4 = Workout.create!(name: "Workout_4", user: @user_1)
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/home")
     click_on "All Workouts"
     expect(current_path).to eq("/workouts")
 
@@ -39,7 +39,7 @@ RSpec.describe 'Workout tests', type: :feature do
 
     visit '/'
     click_on 'Log Out'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_2.username
     fill_in :password, with: @user_2.password
     click_on "Log In"
@@ -60,7 +60,7 @@ RSpec.describe 'Workout tests', type: :feature do
     # workout_4 = Workout.create(name: "Workout_4")
 
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
@@ -78,7 +78,7 @@ RSpec.describe 'Workout tests', type: :feature do
     week_1 = Week.create!(name: "Week 1", workout: workout_1)
     week_2 = Week.create!(name: "Week 2", workout: workout_1)
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
@@ -96,7 +96,7 @@ RSpec.describe 'Workout tests', type: :feature do
     week_1 = Week.create!(name: "Week 1", workout: workout_1)
     week_2 = Week.create!(name: "Week 2", workout: workout_1)
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"

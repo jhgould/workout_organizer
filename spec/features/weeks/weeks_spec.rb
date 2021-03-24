@@ -11,7 +11,7 @@ RSpec.describe 'Weeks', type: :feature do
   end
   it "create weeks for workout" do 
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
@@ -31,7 +31,7 @@ RSpec.describe 'Weeks', type: :feature do
   it "user can go to week show page" do 
     week_1 = Week.create(name: "Week 1", workout: @workout_2)
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
@@ -46,7 +46,7 @@ RSpec.describe 'Weeks', type: :feature do
     week_1 = Week.create(name: "Week 1", workout: @workout_2)
     week_2 = Week.create(name: "Week 2", workout: @workout_2)
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
@@ -60,7 +60,7 @@ RSpec.describe 'Weeks', type: :feature do
   
   it "when user creates a week, 7 days are created automatically for each week" do 
     visit '/'
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"

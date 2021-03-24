@@ -3,7 +3,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
   it "vistor can create a user" do 
     visit '/'
 
-    click_on "Create User"
+    click_on "Sign up"
 
     expect(current_path).to eq('/users/new')
 
@@ -25,7 +25,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     visit "/"
 
-    click_on "Login"
+    click_on "Sign in"
 
     expect(current_path).to eq('/login')
 
@@ -34,7 +34,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/home')
 
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
@@ -46,11 +46,10 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     visit "/"
 
-    click_on "Login"
+    click_on "Sign in"
 
     fill_in :username, with: user.username
     fill_in :password, with: "wrong password"
-
     click_on "Log In"
     
     expect(current_path).to eq('/login')
@@ -74,7 +73,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     visit "/"
 
-    click_on "Login"
+    click_on "Sign in"
 
     expect(current_path).to eq('/login')
 
@@ -83,7 +82,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/home')
 
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
@@ -93,10 +92,32 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     expect(current_path).to eq('/')
     expect(page).to_not have_link("Log Out")
-    expect(page).to have_link("Create User")
-    expect(page).to have_link("Login")
+    expect(page).to have_link("Sign up")
+    expect(page).to have_link("Sign in")
 
   end 
+
+  it "can log in with a existing account" do 
+    user = User.create(username: "thedude69", password: "test")
+    profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: user.id)
+
+    visit "/"
+    within '#landing-page-username' do 
+      fill_in :username, with: user.username
+    end 
+    within '#landing-page-password' do 
+      fill_in :password, with: user.password
+    end 
+
+    click_on "Sign into Workout Organizer"
+    expect(current_path).to eq('/home')
+
+    expect(page).to have_link("Log Out")
+    expect(page).to_not have_link("Sign Up")
+    expect(page).to_not have_link("Sign in")
+    expect(page).to_not have_link("Sign in to Workout Organizer")
+  end 
+
 
    
 end

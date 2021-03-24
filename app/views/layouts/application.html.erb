@@ -1,21 +1,29 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
   <head>
+    <meta charset="utf-8">
     <title>WorkoutOrganizer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A robust suite of app and landing page templates by Medium Rare">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500" rel="stylesheet">
+    <link href="assets/css/socicon.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/entypo.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
-    </div>
-  <body class="bg-dark text-whtie">
-   
-      <%if current_user%>
+
+  <body>
+        <%if current_user%>
       <nav class="navbar navbar-expand-lg navbar-dark bg-info" id="top-nav">
         <div class="container-fluid">
-          <a class="navbar-brand order-1" href="/">Workout Organizer</a>
+          <a class="navbar-brand order-1" href="/home">Workout Organizer</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,27 +43,9 @@
           </div>
         </div>
       </nav>
-        <%else%>
-        <div class="jumbotron jumbotron-fluid bg-dark text-white">
-          <div class="container text-center">
-            <h1 class="display-2">Welcome to Workout Organizer!</h1>
-              <p class="lead">An app for people to organize and track their custom workouts!</p>
+  <%end%>
 
-              <div class="btn-group" role="group" aria-label="Basic outlined example">
-                  <a class="btn btn-outline-primary btn-lg" href="/users/new">Create User</a>
-                  <a class="btn btn-outline-primary btn-lg" href="/login">Login</a>
-              </div>
-          </div>
-        </div>
-
-
-<%end%>
-
-
-    
-    
-
-    <% flash.each do |name, msg| %>
+      <% flash.each do |name, msg| %>
       <div class= "<%=name%>-flash">
         <p><%= msg %></p>
       </div>
@@ -63,4 +53,5 @@
     <%= yield %>
 
   </body>
+
 </html>

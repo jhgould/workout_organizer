@@ -18,7 +18,7 @@ RSpec.describe 'Exercises ', type: :feature do
     @day_6 = Day.create!(name: "Day 6", week: @week_1)
     @day_7 = Day.create!(name: "Day 7", week: @week_1)
     visit "/"
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
