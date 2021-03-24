@@ -100,7 +100,7 @@ RSpec.describe 'User Profile', type: :feature do
 
   end 
 
-  def "user can reset password" do 
+  it "user can reset password" do 
     visit "/profile"
     click_on "Reset Password"
     expect(current_path).to eq("/profile/reset_password")
@@ -110,6 +110,8 @@ RSpec.describe 'User Profile', type: :feature do
     visit '/login'
     fill_in :username, with: "funbucket"
     fill_in :password, with: "new_password" 
+    click "Login"
+    expect(page).to have_content("Welcome back")
   end 
 
 
