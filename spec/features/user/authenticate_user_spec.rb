@@ -34,7 +34,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/home')
 
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")
@@ -72,7 +72,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
     profile1 = Profile.create!(name: "guy", age: 23, height: 4, weight: 5, user_id: user.id)
 
 
-    visit "/"
+    visit "/home"
 
     click_on "Login"
 
@@ -83,7 +83,7 @@ RSpec.describe 'create, update, login, logout ', type: :feature do
 
     click_on "Log In"
 
-    expect(current_path).to eq('/')
+    expect(current_path).to eq('/home')
 
     expect(page).to have_link("Log Out")
     expect(page).to_not have_link("Create User")

@@ -13,7 +13,7 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/home")
     click_on "All Workouts"
     expect(current_path).to eq("/workouts")
   end 
@@ -28,7 +28,7 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    expect(current_path).to eq("/")
+    expect(current_path).to eq("/home")
     click_on "All Workouts"
     expect(current_path).to eq("/workouts")
 
