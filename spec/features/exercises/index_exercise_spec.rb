@@ -26,7 +26,7 @@ RSpec.describe 'Exercises', type: :feature do
     exercise_2 = Exercise.create!(category: "Lower Body", muscle_group: "Legs", name: "Squats", sets: 4, reps: 10, rest_time: 60, weight: 145, day: @day_2)
 
     visit "/"
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"

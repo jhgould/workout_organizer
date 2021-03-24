@@ -20,7 +20,7 @@ RSpec.describe 'Days', type: :feature do
   
   it "user can update day names" do 
     visit "/"
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"

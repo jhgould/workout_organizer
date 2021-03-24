@@ -2,16 +2,15 @@ require 'rails_helper'
 RSpec.describe 'User Profile', type: :feature do 
   before :each do 
     visit "/"
-    click_on "Create User"
+    click_on "Sign up"
     fill_in :username, with: "funbucket"
     fill_in :password, with: "password"
     click_on "Create"
   end
   
-  it "Pofile link is located in nav bar and brings user to profile page" do 
+  it "Profile link is located in nav bar and brings user to profile page" do 
     within '#top-nav' do 
-      expect(page).to have_link("Profile")
-    end 
+    expect(page).to have_link("Profile") end 
   end 
 
   it "User is redirected to form to update profile if it is not filled out" do 
@@ -67,7 +66,7 @@ RSpec.describe 'User Profile', type: :feature do
 
   it "new user is told to update profile by flash message" do 
     click_on "Log Out"
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: "funbucket"
     fill_in :password, with: "password"
     click_on "Log In"
@@ -77,7 +76,7 @@ RSpec.describe 'User Profile', type: :feature do
 
   it "existing user is told welcome back 'user name' " do 
     click_on "Log Out"
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: "funbucket"
     fill_in :password, with: "password"
     click_on "Log In"
@@ -91,7 +90,7 @@ RSpec.describe 'User Profile', type: :feature do
     click_button "Submit"
     click_on "Log Out"
 
-    click_on "Login"
+    click_on "Sign in"
     fill_in :username, with: "funbucket"
     fill_in :password, with: "password"
     click_on "Log In"
@@ -104,14 +103,15 @@ RSpec.describe 'User Profile', type: :feature do
     visit "/profile"
     click_on "Submit"
     click_on "Reset Password"
-    fill_in :password, with: "new_pasword"
+    fill_in :password, with: "new_password"
     click_on "Submit"
     click_on "Log Out"
-    visit '/login'
+    click_on "Sign in"
     fill_in :username, with: "funbucket"
     fill_in :password, with: "new_password" 
     click_on "Log In"
-    expect(page).to have_content("Welcome to Workout Organizer")
+    
+    expect(page).to have_content("Welcome back example: Jack!")
   end 
 
 
