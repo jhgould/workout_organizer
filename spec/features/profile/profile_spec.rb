@@ -100,5 +100,19 @@ RSpec.describe 'User Profile', type: :feature do
 
   end 
 
+  it "user can reset password" do 
+    visit "/profile"
+    click_on "Submit"
+    click_on "Reset Password"
+    fill_in :password, with: "new_pasword"
+    click_on "Submit"
+    click_on "Log Out"
+    visit '/login'
+    fill_in :username, with: "funbucket"
+    fill_in :password, with: "new_password" 
+    click_on "Log In"
+    expect(page).to have_content("Welcome to Workout Organizer")
+  end 
+
 
 end
