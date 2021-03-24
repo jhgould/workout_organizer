@@ -36,6 +36,10 @@ Rails.application.routes.draw do
   get '/profile/edit', to: 'profiles#edit'
   get '/profile/new', to: 'profiles#new'
   patch '/profile', to: 'profiles#update'
+  
+  
+  get '/password/edit', to: 'passwords#edit'
+  patch '/password/update', to: 'passwords#update'
 
 
 end
