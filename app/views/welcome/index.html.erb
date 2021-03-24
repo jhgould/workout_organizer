@@ -81,29 +81,19 @@
             <div class="col-12 col-md-6 col-lg-5">
               <div class="card">
                 <div class="card-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="exampleInputUsername">Username</label>
-                      <input type="text" class="form-control form-control-lg" id="exampleInputUsername" placeholder="Pick a username">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputEmail">Email address</label>
-                      <input type="email" class="form-control form-control-lg" id="exampleInputEmail" placeholder="Enter email">
-                      <small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword">Password</label>
-                      <input type="password" class="form-control form-control-lg" id="exampleInputPassword" placeholder="Password">
-                    </div>
-                    <div class="mb-3">
-                      <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" value="agree" name="agree-terms" id="check-agree">
-                        <label class="custom-control-label text-small" for="check-agree">I agree to the <a href="#">Terms &amp; Conditions</a>
-                        </label>
-                      </div>
-                    </div>
-                    <button type="submit" class="btn btn-lg btn-success btn-block">Sign up for Wingman</button>
-                  </form>
+                  <%= form_tag '/login', method: :post do%>
+                        <div class="form-group">
+                          <label>Username<% label_tag :username%></label>
+                          <span id="landing-page-username"><%= text_field_tag :username, nil, class: 'form-control form-control-lg', placeholder: "Please enter username"%></span>
+                        </div>
+                        <div class="form-group">
+                          <label>Password<% label_tag :password%></label>
+                          <span id='landing-page-password'><%= password_field_tag :password, nil, class: 'form-control form-control-lg', placeholder: "Please enter password"%></span>
+                        </div>
+                       <%= button_tag(type: "submit", class: "btn btn-lg btn-success btn-block") do %>
+                        Sign into Workout Organizer
+                       <% end %>
+                    <%end%>
                 </div>
               </div>
             </div>
