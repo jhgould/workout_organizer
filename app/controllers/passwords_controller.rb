@@ -1,6 +1,6 @@
 class PasswordsController < ApplicationController 
   before_action :is_logged_in
-  
+
   def edit 
   end 
 
