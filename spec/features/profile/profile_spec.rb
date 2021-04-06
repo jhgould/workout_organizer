@@ -81,7 +81,10 @@ RSpec.describe 'User Profile', type: :feature do
     fill_in :password, with: "password"
     click_on "Log In"
     
-    click_on "Profile"
+    
+    within '#top-nav' do 
+      click_on "Profile"
+    end 
     fill_in "name", with: "Fun Bucket"
     fill_in "age", with: 26
     fill_in "height", with: 6
@@ -98,6 +101,7 @@ RSpec.describe 'User Profile', type: :feature do
     expect(page).to have_content(exsisting_user_message)
 
   end 
+
 
   it "user can reset password" do 
     visit "/profile"
