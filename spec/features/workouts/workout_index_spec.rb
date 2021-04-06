@@ -14,7 +14,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :password, with: @user_1.password
     click_on "Log In"
     expect(current_path).to eq("/home")
-    click_on "All Workouts"
+    within '#top-nav' do 
+      click_on "All Workouts"
+   end 
     expect(current_path).to eq("/workouts")
   end 
 
@@ -29,7 +31,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :password, with: @user_1.password
     click_on "Log In"
     expect(current_path).to eq("/home")
-    click_on "All Workouts"
+    within '#top-nav' do 
+      click_on "All Workouts"
+     end 
     expect(current_path).to eq("/workouts")
 
     expect(page).to have_content("Workout_1")
@@ -43,7 +47,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_2.username
     fill_in :password, with: @user_2.password
     click_on "Log In"
-    click_on "All Workouts"
+    within '#top-nav' do 
+      click_on "All Workouts"
+     end 
     expect(page).to_not have_content("Workout_1")
     expect(page).to_not have_content("Workout_2")
     expect(page).to_not have_content("Workout_3")
@@ -64,7 +70,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    click_on "All Workouts"
+    within '#top-nav' do 
+      click_on "All Workouts"
+    end 
     click_on "Workout_1"
     expect(current_path).to eq("/workouts/#{workout_1.id}")
     expect(page).to have_content("Workout_1")
@@ -82,7 +90,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :username, with: @user_1.username
     fill_in :password, with: @user_1.password
     click_on "Log In"
-    click_on "All Workouts"
+    within '#top-nav' do 
+      click_on "All Workouts"
+    end 
     click_on "Create Workout"
 
     fill_in :name, with: "Workout 3"
