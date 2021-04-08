@@ -73,7 +73,9 @@ RSpec.describe 'Workout tests', type: :feature do
     within '#top-nav' do 
       click_on "All Workouts"
     end 
-    click_on "Workout_1"
+    within '.text-body' do 
+      click_on "Workout_1"
+    end 
     expect(current_path).to eq("/workouts/#{workout_1.id}")
     expect(page).to have_content("Workout_1")
     expect(page).to have_content("Week 1")
@@ -98,7 +100,9 @@ RSpec.describe 'Workout tests', type: :feature do
     fill_in :name, with: "Workout 3"
     click_on "Create Workout"
     expect(current_path).to eq("/workouts")
-    click_on "Workout 3"
+    # within "#workout-@" do 
+    #   click_on "Workout 3"
+    # end 
   end 
 
   it "user can delete a workout" do 
