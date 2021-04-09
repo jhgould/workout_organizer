@@ -1,19 +1,106 @@
-<div class="container-fluid mx-0">
-  <div class="container ml-3 text-white">
-    <p class="display-5 mt-4 ml-3"><%=@workout.name%></p>
-      <%@workout.weeks.each do |week|%>
-        <ul class="list-group">
-          <div class="container-fluid">
-            <li class="list-group-item list-group-item-dark list-group-item-action display-6" style="width: 400px;"><%= link_to week.name, "/weeks/#{week.id}"%></li>
-          </div>
-        </ul>
-      <%end%>
+<!doctype html>
+<html lang="en">
 
-    <div class="btn btn-primary text-white mt-3 ml-3">
-      <%=link_to "Add workouts by week", "/weeks/#{@workout.id}/new", :class => "btn"%>
+  <head>
+    <meta charset="utf-8">
+    <title>Wingman Bootstrap Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A robust suite of app and landing page templates by Medium Rare">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="main-container">
+      <section>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <h1 class="h2 mb-2"><%=@workout.name%></h1>
+            </div>
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      </section>
+      <!--end of section-->
+      <section class="flush-with-above">
+        <div class="container">
+          <div class="row justify-content-between">
+            <!--end of col-->
+            <div class="col-12 col-md-10 col-lg-9">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                  <span class="text-muted text-small">Results<%=" 1 - 1"%></span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <div class="btn btn-primary text-white mt-3 ml-3">
+                    <%=link_to "Add workouts by week", "/weeks/#{@workout.id}/new", :class => "btn"%>
+                  </div>
+                  <div class="btn btn-primary text-white mt-3 ml-3">
+                    <%=link_to "Delete Workout", "/workouts/#{@workout.id}",method: "delete", :class => "btn"%>
+                  </div>
+                </div>
+              </div>
+              <table class="table align-items-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+           <%@workout.weeks.each do |week|%>
+                  <tr class="text-small">
+                    <th scope="row">
+                      <a href="#" class="d-flex align-items-center">
+                        <div id="week-<%=week.id%>">
+                          <span class="text-body"><%=link_to week.name, "/weeks/#{week.id}"%></span>
+                        </div>
+                      </a>
+                    </th>
+                    <td>28/11/2017</td>
+                    <td>You</td>
+                    <td>
+                      <div class="dropdown d-inline-block">
+                        <button class="btn btn-sm btn-outline-primary dropdown-toggle dropdown-toggle-no-arrow" type="button" id="dropdownMenuButton-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="icon-dots-three-horizontal"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-sm">
+                          <a class="dropdown-item" href="#">Download</a>
+                          <a class="dropdown-item" href="#">Share</a>
+                          <a class="dropdown-item" href="#">Comment</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#">Delete</a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+              <%end%>
+
+                  
+            </div><!--boom this is it
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      </section>
+      <!--end of section-->
     </div>
-    <div class="btn btn-primary text-white mt-3 ml-3">
-      <%=link_to "Delete Workout", "/workouts/#{@workout.id}",method: "delete", :class => "btn"%>
-    </div>
-  </div>
-</div>
+
+    <!-- Required vendor scripts (Do not remove) -->
+
+
+
+    <!-- Required theme scripts (Do not remove) -->
+
+  </body>
+
+</html>
+
+
+
