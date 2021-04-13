@@ -1,39 +1,97 @@
+<!doctype html>
+<html lang="en">
 
-<div class="container-fluid text-white">
-  <div class="row">
-    <div class="col">
-      <h1 class="display-5 text-center"><%=@day.name%></h1>
+  <head>
+    <meta charset="utf-8">
+    <title>Wingman Bootstrap Theme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A robust suite of app and landing page templates by Medium Rare">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="main-container">
+      <section>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col">
+              <h1 class="h2 mb-2"><%=@day.name%></h1>
+            </div>
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      </section>
+      <!--end of section-->
+      <section class="flush-with-above">
+        <div class="container">
+          <div class="row justify-content-between">
+            <!--end of col-->
+            <div class="col-12 col-md-10 col-lg-9">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                  <span class="text-muted text-small">Results<%=" 1 - 1"%></span>
+                </div>
+                <div class="d-flex align-items-center">
+                </div>
+              </div>
+              <table class="table align-items-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Sets</th>
+                    <th scope="col">Reps</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Rest (seconds)</th>
+                    <th scope="col">Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+               <%@day.exercises.each do |exercise|%>  
+                  <tr class="text-small">
+                    <div id="exercise-<%=exercise.id%>">
+                      <td><%=exercise.name%></td>
+                      <td><%=exercise.sets%></td>
+                      <td><%=exercise.reps%></td>
+                      <td><%=exercise.weight%></td>
+                      <td><%=exercise.rest_time%></td>
+                      <td>
+                        <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%> 
+                        <br>
+                        <%= link_to "Edit", "/exercises/#{exercise.id}/edit", method: "patch"%>
+                      </td>
+                    </div>
+                  </tr>
+              <%end%>
+              
+              </section> <p><%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%><p>
+
+                  
+            </div><!--boom this is it-->
+            
+            
+            <!--end of col-->
+          </div>
+          <!--end of row-->
+        </div>
+        <!--end of container-->
+      <!--end of section-->
     </div>
-  </div>
-  <%@day.exercises.each do |exercise|%>
-    <li class="exercises">
-      <div class="row" >
-        <div class="col">
-          <p> <%=exercise.name%></p>
-        </div>
-        <div class="col">
-          <p> Sets: <%=exercise.sets%></p>
-        </div>
-        <div class="col">
-          <p> Reps: <%=exercise.reps%></p>
-        </div>
-        <div class="col">
-          <p> Weight: <%=exercise.weight%></p>
-        </div>
-        <div class="col">
-          <p> Rest: <%=exercise.rest_time%> seconds</p>
-        </div>
-        <div class="col">
-          <%= link_to "Delete", "/day/#{@day.id}/exercises/#{exercise.id}", method: "delete"%>
-        </div>
-        <div class="col">
-          <%= link_to "Edit", "/exercises/#{exercise.id}/edit", method: "patch"%>
-        </div>
-      </div>
-    </li>
-   <%end%>
-  <p><%= link_to "Add Exercise", "/days/#{@day.id}/exercises/new"%><p>
-</div>
+     
+    <!-- Required vendor scripts (Do not remove) -->
+
+
+
+    <!-- Required theme scripts (Do not remove) -->
+
+  </body>
+
+</html>
+
+
+
 
 
 
