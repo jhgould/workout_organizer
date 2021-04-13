@@ -26,7 +26,9 @@ RSpec.describe 'Days', type: :feature do
     fill_in :password, with: @user_1.password
     click_on "Log In"
     visit "/weeks/#{@week_1.id}"
-    click_on "Day 1"
+    within "#day-#{day_1.id}" do 
+      click_on "Day 1"
+    end 
     expect(current_path).to eq("/days/#{day_1.id}")
     expect(page).to have_content("Day 1")
   end 
