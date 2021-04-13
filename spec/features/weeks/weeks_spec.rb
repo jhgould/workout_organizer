@@ -37,7 +37,9 @@ RSpec.describe 'Weeks', type: :feature do
     click_on "Log In"
     visit "/workouts/#{@workout_2.id}"
 
-    click_on "Week 1"
+    within ".text-body" do 
+      click_on "Week 1"
+    end 
     expect(current_path).to eq("/weeks/#{week_1.id}")
     expect(page).to have_content("Week 1")
   end 
@@ -52,7 +54,10 @@ RSpec.describe 'Weeks', type: :feature do
     click_on "Log In"
     visit "/workouts/#{@workout_2.id}"
 
-    click_on "Week 1"
+    within "#week-#{week_1.id}" do 
+      click_on "Week 1"
+    end 
+    
     click_on "Delete Week"
     expect(current_path).to eq("/workouts/#{@workout_2.id}")
     expect(page).to_not have_content("Week 1")
@@ -69,10 +74,13 @@ RSpec.describe 'Weeks', type: :feature do
     click_on "Add workouts by week"
     fill_in :num_weeks, with: 4
     click_on "Add Weeks"
-    click_on "Week 1"
-    # click_on "Create Days"
-  
+    week = @workout_1.weeks.first.id 
+    
+    within "#week-#{week}" do 
+      click_on "Week 1"
+    end 
 
+    # click_on "Create Days"
     expect(page).to have_content("Day 1")
     expect(page).to have_content("Day 2")
     expect(page).to have_content("Day 3")
