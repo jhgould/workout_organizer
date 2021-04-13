@@ -41,12 +41,15 @@ RSpec.describe 'Exercises', type: :feature do
     click_on "Add"
     expect(current_path).to eq("/days/#{@day_1.id}")
     #create within blocks to test better
-    expect(page).to have_content("Bench Press")
-    expect(page).to have_content("Weight: 145")
-    expect(page).to have_content("Sets: 4")
-    expect(page).to have_content("Reps: 10")
-    expect(page).to have_content("Rest: 60 seconds")
-    expect(page).to_not have_content("Squats")
+    exercise_1 = Day.all[0].exercises[0]
+    within "#exercise-#{exercise_1.id}" do 
+      expect(page).to have_content("Bench Press")
+      expect(page).to have_content("145")
+      expect(page).to have_content("4")
+      expect(page).to have_content("10")
+      expect(page).to have_content("60")
+      expect(page).to_not have_content("Squats")
+    end 
   end 
 
 end
